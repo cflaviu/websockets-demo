@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript">
+const ws = new WebSocket('ws://0.0.0.0:7000')
+console.log('begins')
+ws.onmessage = (message) => {
+  console.log(`message received`, message.data)
+}
+
+ws.onopen = () => {
+  console.log('ws opened on browser')
+//  ws.send('hello world')
+}
+
+function send_message() {
+  console.log('sending')
+  ws.send('newww message')
+}
+</script>
+</head>
+<body>
+    <button type="button" onclick="send_message()">Send</button>
+</body>
+</html>
